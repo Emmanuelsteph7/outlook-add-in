@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start:ssl": "vite --ssl true --ssl-cert \"ssl/server.crt\" --ssl-key \"ssl/server.key\""
+    "start:ssl": "vite --ssl true --ssl-cert \"ssl/server.crt\" --ssl-key \"ssl/server.key\"",
+    "validate:xml": "office-addin-manifest validate manifest.xml"
   },
   "dependencies": {
     "@microsoft/office-js": "^1.1.110",

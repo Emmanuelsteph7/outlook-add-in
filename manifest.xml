@@ -50,6 +50,8 @@
 
           <DesktopFormFactor>
             <FunctionFile resid="Commands.Url"/>
+
+            <!-- This makes it show when sending a message -->
             <ExtensionPoint xsi:type="MessageComposeCommandSurface">
               <OfficeTab id="TabDefault">
                 <Group id="msgComposeGroup">
@@ -69,7 +71,46 @@
                       <SourceLocation resid="Taskpane.Url"/>
                     </Action>
                   </Control>
-                  <Control xsi:type="Button" id="ActionButton">
+                  <Control xsi:type="Button" id="ComposeActionButton">
+                    <Label resid="ActionButton.Label"/>
+                    <Supertip>
+                      <Title resid="ActionButton.Label"/>
+                      <Description resid="ActionButton.Tooltip"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon.16x16"/>
+                      <bt:Image size="32" resid="Icon.32x32"/>
+                      <bt:Image size="80" resid="Icon.80x80"/>
+                    </Icon>
+                    <Action xsi:type="ExecuteFunction">
+                      <FunctionName>handleAlert</FunctionName>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+
+            <!-- This makes it show when reading a message -->
+            <ExtensionPoint xsi:type="MessageReadCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="msgReadGroup">
+                  <Label resid="GroupLabel"/>
+                  <Control xsi:type="Button" id="msgReadOpenPaneButton">
+                    <Label resid="TaskpaneButton.Label"/>
+                    <Supertip>
+                      <Title resid="TaskpaneButton.Label"/>
+                      <Description resid="TaskpaneButton.Tooltip"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon.16x16"/>
+                      <bt:Image size="32" resid="Icon.32x32"/>
+                      <bt:Image size="80" resid="Icon.80x80"/>
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="Taskpane.Url"/>
+                    </Action>
+                  </Control>
+                  <Control xsi:type="Button" id="ReadActionButton">
                     <Label resid="ActionButton.Label"/>
                     <Supertip>
                       <Title resid="ActionButton.Label"/>
@@ -97,9 +138,9 @@
           <bt:Image id="Icon.80x80" DefaultValue="https://outlook-add-in.onrender.com/assets/icon-80.png"/>
         </bt:Images>
         <bt:Urls>
-          <bt:Url id="Commands.Url" DefaultValue="https://outlook-add-in.onrender.com/commands.html"/>
+          <bt:Url id="Commands.Url" DefaultValue="https://outlook-add-in.onrender.com/html/commands.html"/>
           <bt:Url id="Taskpane.Url" DefaultValue="https://outlook-add-in.onrender.com/index.html"/>
-          <bt:Url id="functionScript" DefaultValue="https://outlook-add-in.onrender.com/js/function.js" />
+          <bt:Url id="functionScript" DefaultValue="https://outlook-add-in.onrender.com/js/commands.js" />
         </bt:Urls>
         <bt:ShortStrings>
           <bt:String id="GroupLabel" DefaultValue="Ayika's gist"/>
